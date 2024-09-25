@@ -18,7 +18,8 @@ namespace Models.Managers
             _v.SoloNumeros(dni);
             _v.MayorDe0(dni);
 
-            var adm = await _context.Administradores.FirstOrDefaultAsync(a => a.Dni == dni);
+            var list = await _context.Administradores.ToListAsync();
+            var adm =  list.FirstOrDefault(a => a.Dni == dni);
 
             if (adm == null)
             {

@@ -52,7 +52,7 @@ namespace WebService.Controllers
         }
 
 
-        [HttpGet ("buscarpordni")]
+        [HttpGet ("buscar-por-dni{dni}")]
         public async Task<ActionResult<Administrador>> BuscarPorDni(int dni)
         {
             Administrador response;
