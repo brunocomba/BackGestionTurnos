@@ -1,6 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\WebService"
   ],
+  "SelectedNode": "\\WebService\\WebService.csproj",
   "PreviewInSolutionExplorer": false
 }

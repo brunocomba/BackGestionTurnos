@@ -98,20 +98,20 @@ namespace WebService.Controllers
         }
 
 
-        [HttpGet("buscar")]
-        public async Task<ActionResult<IEnumerable<ElementosCancha>>> Buscar(string nombreElemento, string nombreCancha)
-        {
-            ElementosCancha response;
-            try
-            {
-                response = await _elementosCanchaManager.FiltrarPorNombreOApellido(id);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-            return Ok(response);
+        //[HttpGet("buscar")]
+        //public async Task<ActionResult<IEnumerable<ElementosCancha>>> Buscar(string nombreElemento, string nombreCancha)
+        //{
+        //    ElementosCancha response;
+        //    try
+        //    {
+        //        response = await _elementosCanchaManager.FiltrarPorNombreOApellido(id);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return BadRequest(ex.Message);
+        //    }
+        //    return Ok(response);
 
-        }
+        //}
     }
 }
