@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{36A59ED2-E8A8-4C7E-8AC3-A878E382F5E7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModelsTests", "ModelsTests\ModelsTests.csproj", "{CE1DCC69-8EE1-420C-A620-59BE0F98D752}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebService", "WebService\WebService.csproj", "{8717001D-D599-4F3E-B681-DACEA233ACA0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{36A59ED2-E8A8-4C7E-8AC3-A878E382F5E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36A59ED2-E8A8-4C7E-8AC3-A878E382F5E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36A59ED2-E8A8-4C7E-8AC3-A878E382F5E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36A59ED2-E8A8-4C7E-8AC3-A878E382F5E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE1DCC69-8EE1-420C-A620-59BE0F98D752}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE1DCC69-8EE1-420C-A620-59BE0F98D752}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE1DCC69-8EE1-420C-A620-59BE0F98D752}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE1DCC69-8EE1-420C-A620-59BE0F98D752}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8717001D-D599-4F3E-B681-DACEA233ACA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8717001D-D599-4F3E-B681-DACEA233ACA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8717001D-D599-4F3E-B681-DACEA233ACA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8717001D-D599-4F3E-B681-DACEA233ACA0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8A31A06D-72F2-4AC8-96F8-8174EFC9228F}
+	EndGlobalSection
+EndGlobal
