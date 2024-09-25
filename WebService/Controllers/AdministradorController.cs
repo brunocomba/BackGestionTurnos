@@ -52,8 +52,8 @@ namespace WebService.Controllers
         }
 
 
-        [HttpGet ("buscar-por-dni{dni}")]
-        public async Task<ActionResult<Administrador>> BuscarPorDni(int dni)
+        [HttpGet ("buscar/porDni{dni}")]
+        public async Task<ActionResult<Administrador>> buscar_por_dni(int dni)
         {
             Administrador response;
             try
