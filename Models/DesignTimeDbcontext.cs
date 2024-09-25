@@ -4,17 +4,17 @@ using Models.ConnectionDB;
 
 namespace Models
 {
-    public class DesignTimeDbcontext /*: IDesignTimeDbContextFactory<AppDbContext>*/
+    public class DesignTimeDbcontext : IDesignTimeDbContextFactory<AppDbContext>
     {
-        //public AppDbContext CreateDbContext(string[] args)
-        //{
-        //    var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
+        public AppDbContext CreateDbContext(string[] args)
+        {
+            var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
 
-        //    // Especifica la cadena de conexión a tu base de datos
-        //    optionsBuilder.UseSqlServer("Server=LAPTOP-D62L8RO4\\SQLEXPRESS01;Database=LaCocaWEB;trusted_connection=true;Encrypt=False;MultipleActiveResultSets=true");
+            // Especifica la cadena de conexión a tu base de datos
+            optionsBuilder.UseSqlServer("Server=tcp:srvgestionturnos.database.windows.net,1433;Initial Catalog=GestionTurnosWeb;Persist Security Info=False;User ID=brunodba;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
 
-        //    // Devolver una instancia del contexto con las opciones configuradas
-        //    return new AppDbContext(optionsBuilder.Options);
-        //}
+            // Devolver una instancia del contexto con las opciones configuradas
+            return new AppDbContext(optionsBuilder.Options);
+        }
     }
 }

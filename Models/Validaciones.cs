@@ -3,7 +3,6 @@ using Models.ConnectionDB;
 using Models.Interfaces;
 using System.Net;
 using System.Text.RegularExpressions;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Models
 {
@@ -340,8 +339,14 @@ namespace Models
 
         }
 
+        public bool ExisteAsignacion(int idCancha, int idAsignacion)
+        {
+            throw new NotImplementedException();
+        }
 
-
-      
+        public Task<T> BuscarAsignacion(string nombreCancha, string nombreElemento)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

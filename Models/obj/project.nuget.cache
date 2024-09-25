@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KyF3HySszvDGTxEfz77IIrwc1MC0c0Vr9u7Zx+i5cxrDBIQ4oPaasZAz8WhnfYwpCMqffjkL5YdwXacwX8sLyg==",
+  "dgSpecHash": "lHN3tEWSCpDBWL0QpkPuIQUn7ONgqff45ghvQa8ZdXEk5Sw+FubpRYtkW0GcVL51b5F2+exFrxoAWhwwaEtGGQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\ProyectoTurnos2024\\GestionDeTurnos\\Models\\Models.csproj",
+  "projectFilePath": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\Models\\Models.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\brcom\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\brcom\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",

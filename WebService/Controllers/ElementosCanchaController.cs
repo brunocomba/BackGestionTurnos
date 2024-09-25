@@ -104,7 +104,7 @@ namespace WebService.Controllers
             ElementosCancha response;
             try
             {
-                response = await _elementosCanchaManager.FiltrarPorNombreOApellido(id)
+                response = await _elementosCanchaManager.FiltrarPorNombreOApellido(id);
             }
             catch (Exception ex)
             {
