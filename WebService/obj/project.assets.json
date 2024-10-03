@@ -13148,19 +13148,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\brcom\\.nuget\\packages\\": {}
+    "C:\\Users\\tinch\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\WebService\\WebService.csproj",
+      "projectUniqueName": "C:\\Users\\tinch\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\WebService\\WebService.csproj",
       "projectName": "WebService",
-      "projectPath": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\WebService\\WebService.csproj",
-      "packagesPath": "C:\\Users\\brcom\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\WebService\\obj\\",
+      "projectPath": "C:\\Users\\tinch\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\WebService\\WebService.csproj",
+      "packagesPath": "C:\\Users\\tinch\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\tinch\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\WebService\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\brcom\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\tinch\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -13168,14 +13168,15 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\Models\\Models.csproj": {
-              "projectPath": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\Models\\Models.csproj"
+            "C:\\Users\\tinch\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\Models\\Models.csproj": {
+              "projectPath": "C:\\Users\\tinch\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\Models\\Models.csproj"
             }
           }
         }
@@ -13232,15 +13233,15 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
-            "version": "[8.0.4, 8.0.4]"
+            "version": "[8.0.7, 8.0.7]"
           },
           {
             "name": "Microsoft.NETCore.App.Runtime.win-x64",
-            "version": "[8.0.4, 8.0.4]"
+            "version": "[8.0.7, 8.0.7]"
           },
           {
             "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-            "version": "[8.0.4, 8.0.4]"
+            "version": "[8.0.7, 8.0.7]"
           }
         ],
         "frameworkReferences": {
@@ -13251,7 +13252,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {
