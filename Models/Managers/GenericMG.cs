@@ -18,13 +18,13 @@ namespace Models.Managers
 
         }
 
-        public virtual async Task<IEnumerable<T>> GetAllAsync()
+        public async Task<IEnumerable<T>> GetAllAsync()
         {
             return await _context.Set<T>().ToListAsync();
         }
 
 
-        public virtual async Task<T> GetByIdAsync(int id)
+        public async Task<T> GetByIdAsync(int id)
         {
             var entity = await _context.Set<T>().FindAsync(id);
 
@@ -79,8 +79,6 @@ namespace Models.Managers
 
             throw new Exception($"Error interno");
         }
-
-
 
 
     }

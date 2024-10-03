@@ -28,7 +28,9 @@ namespace Models.Interfaces
         bool PassRegistradaDistinta(string passNew, string passRegistrada);
         bool EmailRegistradoDistinto(string emailIngresado, string emailRegistrado);
         bool EmailAnteriorCorrecto(string emailIngresdo, string emailAnterior);
-      
+        bool ExisteAsignacion(int idCancha, int idAsignacion);
+        Task<T> BuscarAsignacion(string nombreCancha, string nombreElemento);
+
     }
 
 }

@@ -2,28 +2,14 @@
 using Models.Clases;
 using Models.DTOs.Administrador;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration; // DTOs de Adminsitrador
+using Models.DTOs.Filter; // DTOs de Adminsitrador
 
 namespace Models.Managers
 {
     public class AdministradorMG : GenericMG<Administrador>
     {
-        public AdministradorMG(AppDbContext context, IConfiguration configuration) : base(context)
+        public AdministradorMG(AppDbContext context) : base(context) 
         {
-        }
-
-        // Método para hashear la contraseña
-        private string HashPassword(string password)
-        {
-            // Utiliza BCrypt para hashear la contraseña
-            return BCrypt.Net.BCrypt.HashPassword(password);
-        }
-
-        // Método para verificar la contraseña
-        private bool VerifyPassword(string password, string hashedPassword)
-        {
-            // Utiliza BCrypt para verificar la contraseña
-            return BCrypt.Net.BCrypt.Verify(password, hashedPassword);
         }
 
         public async Task<Administrador> BuscarPorDni(int dni)
@@ -41,31 +27,6 @@ namespace Models.Managers
             }
 
             return adm;
-        }
-
-        public async Task<Administrador> ValidateLogin(LoginDTO dto)
-        {
-            if (string.IsNullOrEmpty(dto.Email) || string.IsNullOrEmpty(dto.Password))
-            {
-                throw new Exception("Error: Todos los campos deben estar completos");
-            }
-
-            var adm = await _context.Administradores.FirstOrDefaultAsync(a => a.Email == dto.Email);
-
-            // Verifica si se encontró el administrador
-            if (adm == null)
-            {
-                return null; // Devuelve null si no se encuentra el administrador
-            }
-
-            // Verifica si la contraseña es correcta
-            if (!VerifyPassword(dto.Password, adm.Password))
-            {
-                return null; // Devuelve null si la contraseña es incorrecta
-            }
-
-            return adm; // Credenciales válidas, devuelve el administrador
-
         }
 
 
@@ -92,8 +53,7 @@ namespace Models.Managers
             var adm = new Administrador();
             {
                 adm.Nombre = dto.Nombre;  adm.Apellido = dto.Apellido; adm.Calle = dto.Calle; adm.Altura = dto.Altura;  adm.Dni = dto.Dni;
-                adm.fechaNacimiento = dto.fechaNacimiento.Date; adm.Email = dto.Email;
-                adm.Password = HashPassword(dto.Password); // hashear la contrasnia
+                adm.fechaNacimiento = dto.fechaNacimiento.Date; adm.Email = dto.Email; adm.Password = dto.Password;
             }
 
             await _context.Administradores.AddAsync(adm);

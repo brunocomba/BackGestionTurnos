@@ -2,11 +2,9 @@
 using Models.Managers;
 using Models.DTOs.Elemento; // DTOs de elemento
 using Models.Clases;
-using Microsoft.AspNetCore.Authorization;
 
 namespace WebService.Controllers
 {
-    //[Authorize] // solo los usuarios autenticados puedan acceder a esos recursos
     [ApiController]
     [Route("elementos")]
     public class ElementoController : ControllerBase

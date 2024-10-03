@@ -1,74 +1,23 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
+﻿using Microsoft.AspNetCore.Mvc;
 using Models.Clases;
-using Models.DTOs.Administrador; /// Aceceder a las DTOs de Administradores
+using Models.DTOs.Administrador;
+using Models.DTOs.Filter;
+
+/// Aceceder a las DTOs de Administradores
 using Models.Managers;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
 
 namespace WebService.Controllers
 {
-    //[Authorize] // solo los usuarios autenticados puedan acceder a esos recursos
     [ApiController]
     [Route("administradores")]
     public class AdministradorController : ControllerBase
     {
         private readonly AdministradorMG _administradorManager;
-        private readonly IConfiguration _configuration;
-        public AdministradorController(AdministradorMG administradorManager, IConfiguration configuration)
+
+        public AdministradorController(AdministradorMG administradorManager)
         {
             _administradorManager = administradorManager;
-            _configuration = configuration;
         }
-
-        private string GenerateJwtToken(Administrador admin)
-        {
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(_configuration["Jwt:Key"]);
-            var tokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(new Claim[]
-                {
-                new Claim(ClaimTypes.Name, admin.Id.ToString()),
-                new Claim(ClaimTypes.Role, "Administrador")
-                }),
-                Expires = DateTime.UtcNow.AddHours(1),
-                Issuer = _configuration["Jwt:Issuer"],
-                Audience = _configuration["Jwt:Audience"],
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-            };
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-            return tokenHandler.WriteToken(token);
-        }
-
-        [HttpPost("login")]
-        [AllowAnonymous] // Este método se puede acceder sin autenticación
-        public async Task<ActionResult> LogIn(LoginDTO dto)
-        {
-            Administrador response;
-            try
-            {
-                response = await _administradorManager.ValidateLogin(dto);
-            }
-            catch (Exception ex)
-            {
-                return Conflict(ex.Message); // manejo para errores inesperados
-            }
-
-            // Verifica si la respuesta es nula (credenciales inválidas)
-            if (response == null)
-            {
-                return Unauthorized("Error: Email y/o contraseña incorrecta.");
-            }
-
-            // Crear el token JWT
-            var token = GenerateJwtToken(response);
-
-            return Ok(new { token }); // Devuelve el token en un objeto
-        }
-
 
 
         [HttpGet("listado")]
@@ -136,8 +85,6 @@ namespace WebService.Controllers
 
 
         [HttpPost("add")]
-        [AllowAnonymous] // Este método se puede acceder sin autenticación
-
         public async Task<ActionResult<Administrador>> Add(AltaAdmDTO altaDto)
         {
             string response;

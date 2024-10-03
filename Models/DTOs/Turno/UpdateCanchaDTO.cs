@@ -1,7 +1,7 @@
 ﻿
 namespace Models.DTOs.Turno
 {
-    public class UpdateCanchaTurnoDTO
+    public class UpdateCanchaDTO
     {
         public int idTurnoMod { get; set; }
         public int idCanchaNew { get; set; }

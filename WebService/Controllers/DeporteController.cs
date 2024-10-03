@@ -1,12 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Models;
 using Models.Managers;
-using Models.DTOs.Deporte;
-using Microsoft.AspNetCore.Authorization; // DTOs de Deporte
+using Models.DTOs.Deporte; // DTOs de Deporte
 
 namespace WebService.Controllers
 {
-    //[Authorize] // solo los usuarios autenticados puedan acceder a esos recursos
     [ApiController]
     [Route("deportes")]
     public class DeporteController : ControllerBase

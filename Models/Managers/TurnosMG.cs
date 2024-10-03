@@ -9,14 +9,11 @@ namespace Models.Managers
     {
         private readonly ClienteMG _clienteManager;
         private readonly CanchaMG _canchaManager;
-        private readonly AdministradorMG _admManager;
 
-
-        public TurnosMG(AppDbContext context, ClienteMG clienteManager, CanchaMG canchaManager, AdministradorMG admManager) : base(context)
+        public TurnosMG(AppDbContext context, ClienteMG clienteManager, CanchaMG canchaManager) : base(context)
         {
             _clienteManager = clienteManager;
             _canchaManager = canchaManager;
-            _admManager = admManager; 
         }
 
         
@@ -112,7 +109,6 @@ namespace Models.Managers
             var formatoHr = ConvertirStringEnTimeSpan(dto.Horario);
             _v.MayorDe0(dto.idCliente); _v.MayorDe0(dto.idCancha);
 
-            var adm = await _admManager.GetByIdAsync(dto.idAdm);
             var cancha = await _canchaManager.GetByIdAsync(dto.idCancha);
             var cliente = await _clienteManager.GetByIdAsync(dto.idCliente);
             
@@ -122,7 +118,7 @@ namespace Models.Managers
 
             Turno turno = new Turno();
             {
-                turno.Horario = formatoHr; turno.Fecha = dto.Fecha.Date ;turno.Cliente = cliente; turno.Cancha = cancha; turno.Administrador = adm;
+                turno.Horario = formatoHr; turno.Fecha = dto.Fecha.Date ;turno.Cliente = cliente; turno.Cancha = cancha;
             }
            
             await _context.Turnos.AddAsync(turno);
@@ -199,7 +195,7 @@ namespace Models.Managers
         }
 
 
-        public async Task<string> UpdateCancha(UpdateCanchaTurnoDTO dto)
+        public async Task<string> UpdateCancha(UpdateCanchaDTO dto)
         {
             _v.MayorDe0(dto.idCanchaNew); _v.MayorDe0(dto.idTurnoMod);
             _v.SoloNumeros(dto.idCanchaNew); _v.SoloNumeros(dto.idTurnoMod);
@@ -223,11 +219,8 @@ namespace Models.Managers
         public async Task<IEnumerable<Turno>> TurnosSemanaAsync(DateTime fecha)
         {
             // Calcular el inicio de la semana (lunes)
-            DateTime inicioSemana = fecha.AddDays(-(int)fecha.DayOfWeek + (fecha.DayOfWeek == DayOfWeek.Sunday ? -6 : 1));   // -(int)fecha.DayOfWeek nos da cuantos dias debemos restar para llegar al domingo
-                                                                              // si dayOfWeek es domingo que seria (0) que le sume -6
-                                                                              // sino que le sume 1 (:) = sino se da (?) = si se da
-                                                                              // sumamos uno para llegar al lunes o restamos 6 para llegar al lunes anterior
-
+            DateTime inicioSemana = fecha.AddDays(-(int)fecha.DayOfWeek + 1); // -(int)fecha.DayOfWeek nos dac cuantos dias debemos restar para llegar al domingo
+                                                                              // +1 para byscar el lunes
 
 
             // Calcular el final de la semana (domingo)
@@ -236,7 +229,6 @@ namespace Models.Managers
 
             // Filtrar los turnos que están en ese rango
             var turnosDeLaSemana = await _context.Turnos.Where(t => t.Fecha >= inicioSemana && t.Fecha <= finSemana).ToListAsync();
-
             return turnosDeLaSemana;
 
         }
@@ -252,34 +244,10 @@ namespace Models.Managers
             return turnosDelMes;
         }
 
-        public async Task<IEnumerable<Turno>> TurnosDelDia(DateTime fecha)
-        {
-            var turnosDelDia = await _context.Turnos.Where(t => t.Fecha.Date == fecha.Date).ToListAsync();
 
-            return turnosDelDia;
-        }
-
-        public async Task<IEnumerable<Turno>> TurnosDeCliente(string criterio)
-        {
-            // Verifica si el criterio es nulo o vacío
-            if (string.IsNullOrWhiteSpace(criterio))
-            {
-                return Enumerable.Empty<Turno>(); 
-            }
-
-            // Intenta convertir el criterio a un número entero para la búsqueda por DNI
-            bool esNumero = int.TryParse(criterio, out int dni);
-
-
-            // Filtra los turnos que coinciden con el nombre, apellido o DNI del cliente
-            var turnosFiltrados =  await _context.Turnos.Where(t => t.Cliente.Nombre.ToUpper().Contains(criterio.ToUpper()) || t.Cliente.Apellido.ToUpper().Contains(criterio.ToUpper()) ||
-                             (esNumero == true && t.Cliente.Dni == dni)).ToListAsync();
-
-            return turnosFiltrados;
-        }
 
         // Resultados economicos
-        public async Task<decimal> ResultadoEconomicoMes(DateTime fecha)
+        public async Task<string> ResultadoEconomicoMes(DateTime fecha)
         {
             var turnosDelMes = await TurnosDelMesAsync(fecha);
 
@@ -292,11 +260,11 @@ namespace Models.Managers
                 }
             }
 
-            return resultado;
+            return $"Resultado economico del mes de {fecha.ToString("MMMM")} -- ${resultado}";
         }
 
 
-        public async Task<decimal> ResultadoEconomicoSemana(DateTime fecha)
+        public async Task<string> ResultadoEconomicoSemana(DateTime fecha)
         {
             var turnosSemana = await TurnosSemanaAsync(fecha);
 
@@ -309,30 +277,9 @@ namespace Models.Managers
                 }
             }
 
-            return resultado;
+            return $"Resultado economico del mes de {fecha.ToString("MMMM")} -- ${resultado}";
         }
 
 
-        public async Task<decimal> ResultadoEconomicoAnio(int anio)
-        {
-
-            var turnosDelAnio = await _context.Turnos.Where(t => t.Fecha.Year == anio).ToListAsync();
-
-            if (anio > DateTime.Now.Year) // NO HAY TURNOS PARA ESE ANIO
-            {
-                throw new Exception($"Aun no estamos en el año {anio}. Esperemos seguir sumando añoa juntos.");
-            }
-
-            decimal resultado = 0;
-            foreach (var turno in turnosDelAnio)
-            {
-                if (turno.Cancha != null)
-                {
-                    resultado += turno.Cancha.Precio;
-                }
-            }
-
-            return resultado;  // Devuelve el valor decimal
-        }
     }
 }

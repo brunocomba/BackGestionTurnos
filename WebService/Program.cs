@@ -1,9 +1,6 @@
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
 using Models.ConnectionDB;
 using Models.Managers;
-using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,27 +26,6 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// JWT Authentication configuration
-builder.Services.AddAuthentication(options =>
-{
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-})
-.AddJwtBearer(options =>
-{
-    options.TokenValidationParameters = new TokenValidationParameters
-    {
-        ValidateIssuer = true,          // Verifica el emisor del token
-        ValidateAudience = true,        // Verifica el destinatario del token
-        ValidateLifetime = true,        // Verifica la expiración del token
-        ValidateIssuerSigningKey = true,// Verifica la clave de firma del token
-        ValidIssuer = "https://backgestionturnos.azurewebsites.net",  // Emisor de tu app
-        ValidAudience = "https://turnoslacocaweb.azurewebsites.net", // Destinatario esperado (normalmente tu API o frontend)
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("gestion-turnos-key-supersegura-202445414815")), // clave secreta
-        ClockSkew = TimeSpan.Zero       // Opcional: elimina la tolerancia del reloj para la expiración del token
-    };
-});
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -59,13 +35,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseHttpsRedirection();
 
 app.UseAuthorization();
-
-// Add authentication middleware
-app.UseAuthentication();
-
-app.UseHttpsRedirection();
 
 app.MapControllers();
 
