@@ -2,9 +2,11 @@
 using Models.Clases;
 using Models.Managers;
 using Models.DTOs.ElementoCancha;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebService.Controllers
 {
+    //[Authorize] // solo los usuarios autenticados puedan acceder a esos recursos
     [ApiController]
     [Route("elementoscancha")]
     public class ElementosCanchaController : ControllerBase

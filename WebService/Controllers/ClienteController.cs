@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Models.Clases;
 using Models.Managers;
-using Models.DTOs.Cliente; // DTOs de 
+using Models.DTOs.Cliente;
+using Microsoft.AspNetCore.Authorization; // DTOs de 
 
 namespace WebService.Controllers
 {
+    //[Authorize] // solo los usuarios autenticados puedan acceder a esos recursos
     [ApiController]
     [Route("clientes")]
     public class ClienteController : ControllerBase

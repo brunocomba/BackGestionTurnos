@@ -2,9 +2,11 @@
 using Models.Clases;
 using Models.Managers;
 using Models.DTOs.Cancha; // DTOs de Cancha
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebService.Controllers
 {
+    //[Authorize] // solo los usuarios autenticados puedan acceder a esos recursos
     [ApiController]
     [Route("canchas")]
     public class CanchaController : ControllerBase
@@ -48,6 +50,23 @@ namespace WebService.Controllers
             return Ok(response);
 
         }
+
+
+        [HttpGet("filtrarPorNombreOApellido")]
+        public async Task<ActionResult<IEnumerable<Cancha>>> Filtrar(string data)
+        {
+            IEnumerable<Cancha> response;
+            try
+            {
+                response = await _canchaManager.FiltrarPorNombreOApellido(data);
+            }
+            catch (Exception ex)
+            {
+                return Conflict(ex.Message);
+            }
+            return Ok(response);
+        }
+
 
         [HttpPost("add")]
         public async Task<ActionResult<Cancha>> Add(AltaCanchaDTO dto)

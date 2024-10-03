@@ -1,4 +1,5 @@
-﻿using Models.Clases;
+﻿using Microsoft.EntityFrameworkCore;
+using Models.Clases;
 using Models.ConnectionDB;
 using Models.DTOs.Cancha;
 
@@ -60,6 +61,23 @@ namespace Models.Managers
 
         }
 
+        /// Metodos get sobesrctitos para incluir (que se muestre) la entidad deporte
+        
+        //public override async Task<IEnumerable<Cancha>> GetAllAsync()
+        //{
+        //    return await _context.Set<Cancha>().Include(c => c.Deporte).ToListAsync(); 
+        //}
+
+        //public override async Task<Cancha> GetByIdAsync(int id)
+        //{
+        //    var cancha = await _context.Set<Cancha>().Include(c => c.Deporte).FirstOrDefaultAsync(c => c.Id == id);
+
+        //    if (cancha == null)
+        //    {
+        //        throw new Exception($"No se encontró Cancha con el ID {id}");
+        //    }
+        //    return cancha;
+        //}
 
 
     }
