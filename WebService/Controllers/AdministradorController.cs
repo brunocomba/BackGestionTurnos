@@ -24,6 +24,9 @@ namespace WebService.Controllers
             _configuration = configuration;
         }
 
+
+
+        [AllowAnonymous]
         private string GenerateJwtToken(Administrador admin)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
