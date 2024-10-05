@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\WebService"
+    "\\WebService",
+    "\\WebService\\Controllers"
   ],
-  "SelectedNode": "\\WebService\\appsettings.json",
+  "SelectedNode": "\\WebService\\Controllers\\TurnoController.cs",
   "PreviewInSolutionExplorer": false
 }
