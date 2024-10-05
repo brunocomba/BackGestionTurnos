@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace WebService.Controllers
 {
-    //[Authorize] // solo los usuarios autenticados puedan acceder a esos recursos
+    [Authorize] // solo los usuarios autenticados puedan acceder a esos recursos
     [ApiController]
     [Route("canchas")]
     public class CanchaController : ControllerBase
@@ -25,12 +25,16 @@ namespace WebService.Controllers
             try
             {
                 response = await _canchaManager.GetAllAsync();
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
 
         }
 
@@ -42,12 +46,16 @@ namespace WebService.Controllers
             try
             {
                 response = await _canchaManager.GetByIdAsync(id);
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
-            }
-            return Ok(response);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
+            });
 
         }
 
@@ -59,12 +67,16 @@ namespace WebService.Controllers
             try
             {
                 response = await _canchaManager.FiltrarPorNombreOApellido(data);
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return Conflict(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
         }
 
 
@@ -75,12 +87,16 @@ namespace WebService.Controllers
             try
             {
                 response = await _canchaManager.AddAsync(dto);
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
         }
 
         [HttpPut("update")]
@@ -90,12 +106,16 @@ namespace WebService.Controllers
             try
             {
                 response = await _canchaManager.Update(dto);
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
         }
 
         [HttpDelete("delete{id}")]
@@ -105,12 +125,16 @@ namespace WebService.Controllers
             try
             {
                 response = await _canchaManager.DeleteAsync(id);
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
         }
 
   

@@ -10,13 +10,14 @@ using System.Text;
 
 namespace WebService.Controllers
 {
-    //[Authorize] // solo los usuarios autenticados puedan acceder a esos recursos
+    [Authorize] // Exige autenticación para acceder a los métodos, excepto donde se permita explícitamente
     [ApiController]
     [Route("administradores")]
     public class AdministradorController : ControllerBase
     {
         private readonly AdministradorMG _administradorManager;
         private readonly IConfiguration _configuration;
+
         public AdministradorController(AdministradorMG administradorManager, IConfiguration configuration)
         {
             _administradorManager = administradorManager;
@@ -42,6 +43,7 @@ namespace WebService.Controllers
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);
         }
+
 
         [HttpPost("login")]
         [AllowAnonymous] // Este método se puede acceder sin autenticación
@@ -70,22 +72,23 @@ namespace WebService.Controllers
         }
 
 
-
         [HttpGet("listado")]
         public async Task<ActionResult<IEnumerable<Administrador>>> Listado()
         {
-            IEnumerable<Administrador> response;
             try
             {
-                response = await _administradorManager.GetAllAsync();
+                var response = await _administradorManager.GetAllAsync();
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return Conflict(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
         }
-
 
         [HttpGet("buscar{id}")]
         public async Task<ActionResult<Administrador>> Buscar(int id)
@@ -94,12 +97,16 @@ namespace WebService.Controllers
             try
             {
                 response = await _administradorManager.GetByIdAsync(id);
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return Conflict(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
         }
 
 
@@ -110,12 +117,16 @@ namespace WebService.Controllers
             try
             {
                 response = await _administradorManager.BuscarPorDni(dni);
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return Conflict(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
         }
 
 
@@ -126,30 +137,36 @@ namespace WebService.Controllers
             try
             {
                 response =  await _administradorManager.FiltrarPorNombreOApellido(data);
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return Conflict(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
         }
 
 
         [HttpPost("add")]
-        [AllowAnonymous] // Este método se puede acceder sin autenticación
-
         public async Task<ActionResult<Administrador>> Add(AltaAdmDTO altaDto)
         {
             string response;
             try
             {
                 response = await _administradorManager.AddAsync(altaDto);
+                return Ok(response);
             }
-            catch (Exception ex) 
+            catch (UnauthorizedAccessException)
             {
-                return Conflict(ex.Message);
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
-            return Ok(response);
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
+            }
         }
 
 
@@ -160,12 +177,16 @@ namespace WebService.Controllers
             try
             {
                 response = await _administradorManager.UpdateDatosPersonales(dto);
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return Conflict(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
         }
 
 
@@ -176,12 +197,16 @@ namespace WebService.Controllers
             try
             {
                 response = await _administradorManager.UdpdateEmail(dto);
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return Conflict(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
         }
 
 
@@ -192,12 +217,16 @@ namespace WebService.Controllers
             try
             {
                 response = await _administradorManager.UpdatePassword(dto);
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return Conflict(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
         }
 
 
@@ -208,12 +237,16 @@ namespace WebService.Controllers
             try
             {
                 response = await _administradorManager.DeleteAsync(id);
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return Conflict(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
         }
 
     }

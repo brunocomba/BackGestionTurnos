@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Models;
 using Models.Managers;
-using Models.DTOs.Deporte;
-using Microsoft.AspNetCore.Authorization; // DTOs de Deporte
+using Models.DTOs.Deporte; // DTOs de Deporte
+using Microsoft.AspNetCore.Authorization; 
 
 namespace WebService.Controllers
 {
-    //[Authorize] // solo los usuarios autenticados puedan acceder a esos recursos
+    [Authorize] // solo los usuarios autenticados puedan acceder a esos recursos
     [ApiController]
     [Route("deportes")]
     public class DeporteController : ControllerBase
@@ -26,13 +26,16 @@ namespace WebService.Controllers
             try
             {
                 response = await _deporteManager.GetAllAsync();
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
-
         }
 
 
@@ -43,13 +46,16 @@ namespace WebService.Controllers
             try
             {
                 response = await _deporteManager.GetByIdAsync(id);
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
-
         }
 
 
@@ -60,12 +66,16 @@ namespace WebService.Controllers
             try
             {
                 response = await _deporteManager.AddAsync(dto);
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
         }
 
 
@@ -76,12 +86,16 @@ namespace WebService.Controllers
             try
             {
                 response = await _deporteManager.Update(dto);
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
         }
 
 
@@ -92,12 +106,16 @@ namespace WebService.Controllers
             try
             {
                 response = await _deporteManager.DeleteAsync(id);
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
         }
 
       

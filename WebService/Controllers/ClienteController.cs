@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Models.Clases;
 using Models.Managers;
-using Models.DTOs.Cliente;
-using Microsoft.AspNetCore.Authorization; // DTOs de 
+using Models.DTOs.Cliente; // DTOs de cliente
+using Microsoft.AspNetCore.Authorization; 
 
 namespace WebService.Controllers
 {
-    //[Authorize] // solo los usuarios autenticados puedan acceder a esos recursos
+    [Authorize] // solo los usuarios autenticados puedan acceder a esos recursos
     [ApiController]
     [Route("clientes")]
     public class ClienteController : ControllerBase
@@ -26,12 +26,16 @@ namespace WebService.Controllers
             try
             {
                 response = await _clienteManager.GetAllAsync();
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
         }
 
 
@@ -42,12 +46,16 @@ namespace WebService.Controllers
             try
             {
                 response = await _clienteManager.GetByIdAsync(id);
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
         }
 
 
@@ -58,12 +66,16 @@ namespace WebService.Controllers
             try
             {
                 response = await _clienteManager.AddAsync(dto);
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
         }
 
 
@@ -74,12 +86,16 @@ namespace WebService.Controllers
             try
             {
                 response = await _clienteManager.Update(dto);
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
         }
 
 
@@ -90,12 +106,16 @@ namespace WebService.Controllers
             try
             {
                 response = await _clienteManager.DeleteAsync(id);
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
         }
 
       

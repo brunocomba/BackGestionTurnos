@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace WebService.Controllers
 {
-    //[Authorize] // solo los usuarios autenticados puedan acceder a esos recursos
+    [Authorize] // solo los usuarios autenticados puedan acceder a esos recursos
     [ApiController]
     [Route("elementos")]
     public class ElementoController : ControllerBase
@@ -26,12 +26,16 @@ namespace WebService.Controllers
             try
             {
                 response = await _elementoManager.GetAllAsync();
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
 
         }
 
@@ -43,12 +47,16 @@ namespace WebService.Controllers
             try
             {
                 response = await _elementoManager.GetByIdAsync(id);
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
 
         }
 
@@ -60,12 +68,16 @@ namespace WebService.Controllers
             try
             {
                 response = await _elementoManager.AddAsync(dto);
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
         }
 
 
@@ -76,13 +88,16 @@ namespace WebService.Controllers
             try
             {
                 response = await _elementoManager.AddStock(dto);
-
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
         }
 
 
@@ -93,12 +108,16 @@ namespace WebService.Controllers
             try
             {
                 response = await _elementoManager.RestarStock(dto);
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
         }
 
 
@@ -108,13 +127,17 @@ namespace WebService.Controllers
             string response;
             try
             {
-                response = await _elementoManager.UpdateNombre(dto);    
+                response = await _elementoManager.UpdateNombre(dto);
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
         }
 
 
@@ -125,12 +148,16 @@ namespace WebService.Controllers
             try
             {
                 response = await _elementoManager.DeleteAsync(id);
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
         }
 
     }

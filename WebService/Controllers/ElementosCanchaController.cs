@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace WebService.Controllers
 {
-    //[Authorize] // solo los usuarios autenticados puedan acceder a esos recursos
+    [Authorize] // solo los usuarios autenticados puedan acceder a esos recursos
     [ApiController]
     [Route("elementoscancha")]
     public class ElementosCanchaController : ControllerBase
@@ -19,19 +19,63 @@ namespace WebService.Controllers
         }
 
 
+        [HttpGet("listado")]
+        public async Task<ActionResult<IEnumerable<ElementosCancha>>> Listado()
+        {
+            IEnumerable<ElementosCancha> response;
+            try
+            {
+                response = await _elementosCanchaManager.GetAllAsync();
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
+            }
+        }
+
+
+        [HttpGet("buscar{id}")]
+        public async Task<ActionResult<IEnumerable<ElementosCancha>>> BuscarAsignacionPorID(int id)
+        {
+            ElementosCancha response;
+            try
+            {
+                response = await _elementosCanchaManager.GetByIdAsync(id);
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
+            }
+        }
+
+
         [HttpPost("add")]
         public async Task<ActionResult<ElementosCancha>> Add(AltaAsignacionElementoDTO dto)
         {
             string response;
             try
             {
-                response = await _elementosCanchaManager.AddAsync(dto);   
+                response = await _elementosCanchaManager.AddAsync(dto);
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
         }
 
 
@@ -42,12 +86,16 @@ namespace WebService.Controllers
             try
             {
                 response = await _elementosCanchaManager.AddCantidad(dto);
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
         }
 
 
@@ -58,12 +106,16 @@ namespace WebService.Controllers
             try
             {
                 response = await _elementosCanchaManager.RestarCantidad(dto);
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
         }
 
 
@@ -74,46 +126,20 @@ namespace WebService.Controllers
             try
             {
                 response = await _elementosCanchaManager.DeleteAsync(id);
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
         }
 
 
-        [HttpGet("listado")]
-        public async Task<ActionResult<IEnumerable<ElementosCancha>>> Listado()
-        {
-            IEnumerable<ElementosCancha> response;
-            try
-            {
-                response = await _elementosCanchaManager.GetAllAsync();
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-            return Ok(response);
+      
 
-        }
-
-
-        //[HttpGet("buscar")]
-        //public async Task<ActionResult<IEnumerable<ElementosCancha>>> Buscar(string nombreElemento, string nombreCancha)
-        //{
-        //    ElementosCancha response;
-        //    try
-        //    {
-        //        response = await _elementosCanchaManager.FiltrarPorNombreOApellido(id);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return BadRequest(ex.Message);
-        //    }
-        //    return Ok(response);
-
-        //}
     }
 }

@@ -6,7 +6,7 @@ using Models.DTOs.Turno;
 
 namespace WebService.Controllers
 { 
-    //[Authorize] // solo los usuarios autenticados puedan acceder a esos recursos    
+    [Authorize] // solo los usuarios autenticados puedan acceder a esos recursos    
     [ApiController]
     [Route("turnos")]
     public class TurnoController : ControllerBase
@@ -26,13 +26,16 @@ namespace WebService.Controllers
             try
             {
                 response = await _turnosmanager.GetAllAsync();
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
-
         }
 
 
@@ -43,15 +46,18 @@ namespace WebService.Controllers
             try
             {
                 response = await _turnosmanager.GetByIdAsync(id);
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
 
         }
-
 
 
         [HttpGet("filtrar/por/cliente")]
@@ -61,12 +67,16 @@ namespace WebService.Controllers
             try
             {
                 response = await _turnosmanager.TurnosDeCliente(criterio);
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
 
         }
 
@@ -78,14 +88,19 @@ namespace WebService.Controllers
             try
             {
                 response = await _turnosmanager.TurnosSemanaAsync(fecha);
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
 
         }
+
 
         [HttpGet("filtrar/por/mes")]
         public async Task<ActionResult<IEnumerable<Turno>>> ListadoMes(DateTime fecha)
@@ -94,14 +109,19 @@ namespace WebService.Controllers
             try
             {
                 response = await _turnosmanager.TurnosDelMesAsync(fecha);
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
 
         }
+
 
         [HttpGet("filtrar/por/dia")]
         public async Task<ActionResult<IEnumerable<Turno>>> ListadoDia(DateTime fecha)
@@ -110,14 +130,19 @@ namespace WebService.Controllers
             try
             {
                 response = await _turnosmanager.TurnosDelDia(fecha);
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
 
         }
+
 
         [HttpPost("add")]
         public async Task<ActionResult<Turno>> Add(AltaTurnoDTO dto)
@@ -126,14 +151,18 @@ namespace WebService.Controllers
             try
             {
                 response = await _turnosmanager.RegistrarAsync(dto);
-
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
         }
+
 
         [HttpPut("updateDay")]
         public async Task<ActionResult<Turno>> UpdateDay(UpdateDayTurnoDTO dto)
@@ -142,13 +171,18 @@ namespace WebService.Controllers
             try
             {
                 response = await _turnosmanager.UpdateDay(dto);
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
         }
+
 
         [HttpPut("updateHorario")]
         public async Task<ActionResult<Turno>> UpdateHorario(UpdateHorarioTurnoDTO dto)
@@ -157,13 +191,18 @@ namespace WebService.Controllers
             try
             {
                 response = await _turnosmanager.UpdateHorario(dto);
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
         }
+
 
         [HttpPut("updateCliente")]
         public async Task<ActionResult<Turno>> UpdateCliente(UpdateClienteTurnoDTO dto)
@@ -172,13 +211,18 @@ namespace WebService.Controllers
             try
             {
                 response = await _turnosmanager.UpdateCliente(dto);
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
         }
+
 
         [HttpPut("updateCancha")]
         public async Task<ActionResult<Turno>> UpdateCancha(UpdateCanchaTurnoDTO dto)
@@ -187,13 +231,18 @@ namespace WebService.Controllers
             try
             {
                 response = await _turnosmanager.UpdateCancha(dto);
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
         }
+
 
         [HttpDelete("delete{id}")]
         public async Task<ActionResult<Turno>> Delete(int id)
@@ -202,12 +251,16 @@ namespace WebService.Controllers
             try
             {
                 response = await _turnosmanager.DeleteAsync(id);
+                return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-            return Ok(response);
         }
 
 
@@ -218,15 +271,16 @@ namespace WebService.Controllers
             try
             {
                 response = await _turnosmanager.ResultadoEconomicoMes(fecha);
+                return Ok(response);
             }
-
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
+            }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-
-            return Ok(response);
-
         }
 
 
@@ -237,15 +291,16 @@ namespace WebService.Controllers
             try
             {
                 response = await _turnosmanager.ResultadoEconomicoSemana(fecha);
+                return Ok(response);
             }
-
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
+            }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-
-            return Ok(response);
-
         }
 
         [HttpGet("ganancias/anio")]
@@ -255,15 +310,16 @@ namespace WebService.Controllers
             try
             {
                 response = await _turnosmanager.ResultadoEconomicoAnio(anio);
+                return Ok(response);
             }
-
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized("No tienes permiso para acceder a este recurso.");
+            }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
-
-            return Ok(response);
-
         }
     }
 }
