@@ -10,7 +10,6 @@ using System.Text;
 
 namespace WebService.Controllers
 {
-    [Authorize] // Exige autenticación para acceder a los métodos, excepto donde se permita explícitamente
     [ApiController]
     [Route("administradores")]
     public class AdministradorController : ControllerBase
@@ -25,8 +24,6 @@ namespace WebService.Controllers
         }
 
 
-
-        [AllowAnonymous]
         private string GenerateJwtToken(Administrador admin)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
@@ -38,16 +35,18 @@ namespace WebService.Controllers
                 new Claim(ClaimTypes.Name, admin.Id.ToString()),
                 new Claim(ClaimTypes.Role, "Administrador")
                 }),
-                Expires = DateTime.UtcNow.AddHours(1),
+                Expires = DateTime.UtcNow.AddMinutes(60),
                 Issuer = _configuration["Jwt:Issuer"],
                 Audience = _configuration["Jwt:Audience"],
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
+
             var token = tokenHandler.CreateToken(tokenDescriptor);
+
             return tokenHandler.WriteToken(token);
         }
 
-
+        [Authorize]
         [HttpPost("login")]
         [AllowAnonymous] // Este método se puede acceder sin autenticación
         public async Task<ActionResult> LogIn(LoginDTO dto)
@@ -75,6 +74,7 @@ namespace WebService.Controllers
         }
 
 
+        [Authorize]
         [HttpGet("listado")]
         public async Task<ActionResult<IEnumerable<Administrador>>> Listado()
         {
@@ -93,6 +93,7 @@ namespace WebService.Controllers
             }
         }
 
+        [Authorize]
         [HttpGet("buscar{id}")]
         public async Task<ActionResult<Administrador>> Buscar(int id)
         {
@@ -112,7 +113,7 @@ namespace WebService.Controllers
             }
         }
 
-
+        [Authorize]
         [HttpGet ("buscar/porDni{dni}")]
         public async Task<ActionResult<Administrador>> buscar_por_dni(int dni)
         {
@@ -133,6 +134,7 @@ namespace WebService.Controllers
         }
 
 
+        [Authorize]
         [HttpGet("filtrarPorNombreOApellido")]
         public async Task<ActionResult<IEnumerable<Administrador>>> Filtrar(string data)
         {
@@ -153,6 +155,7 @@ namespace WebService.Controllers
         }
 
 
+        [Authorize]
         [HttpPost("add")]
         public async Task<ActionResult<Administrador>> Add(AltaAdmDTO altaDto)
         {
@@ -172,7 +175,7 @@ namespace WebService.Controllers
             }
         }
 
-
+        [Authorize]
         [HttpPut("update/datospersonales")]
         public async Task<ActionResult<Administrador>> UpdateNombres(UpdateDatosPersonalesAdmDTO dto)
         {
@@ -193,6 +196,7 @@ namespace WebService.Controllers
         }
 
 
+        [Authorize]
         [HttpPut("update/email")]
         public async Task<ActionResult<Administrador>> UpdateUsuario(UpdateEmailAdmDTO dto)
         {
@@ -213,6 +217,7 @@ namespace WebService.Controllers
         }
 
 
+        [Authorize]
         [HttpPut("update/password")]
         public async Task<ActionResult<Administrador>> UpdatePass(UpdatePassAdmDTO dto)
         {
@@ -232,7 +237,7 @@ namespace WebService.Controllers
             }
         }
 
-
+        [Authorize]
         [HttpDelete("delete{id}")]
         public async Task<ActionResult<Administrador>> Delete(int id)
         {

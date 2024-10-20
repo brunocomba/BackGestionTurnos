@@ -60,7 +60,7 @@
               "RelativeDocumentMoniker": "WebService\\appsettings.json",
               "ToolTip": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\WebService\\appsettings.json",
               "RelativeToolTip": "WebService\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAA3AAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-10-20T15:58:28.725Z",
               "EditorCaption": ""
@@ -75,8 +75,7 @@
               "RelativeToolTip": "WebService\\Controllers\\CanchaController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T15:26:31.017Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-20T15:26:31.017Z"
             },
             {
               "$type": "Document",
@@ -88,8 +87,7 @@
               "RelativeToolTip": "WebService\\Controllers\\TurnoController.cs",
               "ViewState": "AQIAAHgAAAAAAAAAAAAAAJMAAAA/AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T15:18:47.766Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-20T15:18:47.766Z"
             },
             {
               "$type": "Document",
@@ -101,8 +99,7 @@
               "RelativeToolTip": "Models\\Clases\\Cancha.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T14:29:50.406Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-20T14:29:50.406Z"
             },
             {
               "$type": "Document",
@@ -114,8 +111,7 @@
               "RelativeToolTip": "Models\\Clases\\Turno.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T14:25:30.148Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-20T14:25:30.148Z"
             },
             {
               "$type": "Document",
@@ -127,8 +123,7 @@
               "RelativeToolTip": "WebService\\Controllers\\AdministradorController.cs",
               "ViewState": "AQIAAAYAAAAAAAAAAAAAADkAAABEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-06T23:06:22.044Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-06T23:06:22.044Z"
             }
           ]
         },
