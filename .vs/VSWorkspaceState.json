@@ -1,9 +1,14 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Models",
+    "\\Models\\Clases",
+    "\\Models\\DTOs",
+    "\\Models\\DTOs\\Turno",
+    "\\Models\\Managers",
     "\\WebService",
     "\\WebService\\Controllers"
   ],
-  "SelectedNode": "\\WebService\\appsettings.Development.json",
+  "SelectedNode": "\\Models\\Managers\\AdministradorMG.cs",
   "PreviewInSolutionExplorer": false
 }

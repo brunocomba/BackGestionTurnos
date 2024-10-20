@@ -59,11 +59,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 // Add authentication middleware
-app.UseAuthentication();
 
 app.UseHttpsRedirection();
 

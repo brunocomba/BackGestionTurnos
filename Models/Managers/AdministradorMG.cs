@@ -59,7 +59,7 @@ namespace Models.Managers
             }
 
             // Verifica si la contraseña es correcta
-            if (!VerifyPassword(dto.Password, adm.Password))
+            if (VerifyPassword(dto.Password, adm.Password) == false)
             {
                 return null; // Devuelve null si la contraseña es incorrecta
             }
