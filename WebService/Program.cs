@@ -31,8 +31,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
-var jwtSettings = new JwtSettings();
-builder.Configuration.Bind("Jwt", jwtSettings);
+
 
 // JWT Authentication configuration
 builder.Services.AddAuthentication(options =>
@@ -48,8 +47,6 @@ builder.Services.AddAuthentication(options =>
         ValidateAudience = true,        // Verifica el destinatario del token
         ValidateLifetime = true,        // Verifica la expiración del token
         ValidateIssuerSigningKey = true,// Verifica la clave de firma del token
-        ValidIssuer = jwtSettings.Issuer,  // Emisor de tu app
-        ValidAudiences = jwtSettings.Audiences, // Destinatario esperado (normalmente tu API o frontend)
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("gestion-turnos-key-supersegura-202445414815")), // clave secreta
         ClockSkew = TimeSpan.Zero       // Opcional: elimina la tolerancia del reloj para la expiración del token
     };

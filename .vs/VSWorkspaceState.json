@@ -9,6 +9,6 @@
     "\\WebService",
     "\\WebService\\Controllers"
   ],
-  "SelectedNode": "\\WebService\\appsettings.json",
+  "SelectedNode": "\\WebService\\Program.cs",
   "PreviewInSolutionExplorer": false
 }
