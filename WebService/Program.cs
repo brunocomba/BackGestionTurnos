@@ -8,6 +8,17 @@ using WebService;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Configuración de CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllOrigins", builder =>
+    {
+        builder.AllowAnyOrigin()       // Permite todas las solicitudes de cualquier origen
+               .AllowAnyMethod()       // Permite cualquier método (GET, POST, etc.)
+               .AllowAnyHeader();      // Permite cualquier encabezado
+    });
+});
+
 // Add services to the container.
 
 builder.Services.AddDbContext<AppDbContext>(options =>
