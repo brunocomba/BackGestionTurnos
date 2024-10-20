@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8717001D-D599-4F3E-B681-DACEA233ACA0}|WebService\\WebService.csproj|C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\webservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{8717001D-D599-4F3E-B681-DACEA233ACA0}|WebService\\WebService.csproj|c:\\users\\brcom\\onedrive\\documentos\\github\\backgestionturnos\\webservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{8717001D-D599-4F3E-B681-DACEA233ACA0}|WebService\\WebService.csproj|solutionrelative:webservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8717001D-D599-4F3E-B681-DACEA233ACA0}|WebService\\WebService.csproj|c:\\users\\brcom\\onedrive\\documentos\\github\\backgestionturnos\\webservice\\controllers\\administradorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8717001D-D599-4F3E-B681-DACEA233ACA0}|WebService\\WebService.csproj|C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\webservice\\controllers\\administradorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8717001D-D599-4F3E-B681-DACEA233ACA0}|WebService\\WebService.csproj|solutionrelative:webservice\\controllers\\administradorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -238,8 +238,7 @@
               "RelativeToolTip": "WebService\\Controllers\\AdministradorController.cs",
               "ViewState": "AQIAAN4AAAAAAAAAAAAAAO8AAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-25T20:36:55.324Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-25T20:36:55.324Z"
             },
             {
               "$type": "Document",
@@ -381,7 +380,7 @@
               "RelativeDocumentMoniker": "WebService\\appsettings.json",
               "ToolTip": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\WebService\\appsettings.json",
               "RelativeToolTip": "WebService\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAA6AAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-09-25T06:40:02.846Z",
               "EditorCaption": ""
