@@ -44,7 +44,7 @@ builder.Services.AddAuthentication(options =>
         ValidateLifetime = true,        // Verifica la expiración del token
         ValidateIssuerSigningKey = true,// Verifica la clave de firma del token
         ValidIssuer = "https://backgestionturnos.azurewebsites.net",  // Emisor de tu app
-        ValidAudience = "https://turnoslacocaweb.azurewebsites.net", // Destinatario esperado (normalmente tu API o frontend)
+        ValidAudience = jwtSettings.GetSection("Audience").Get<string[]>(), // Destinatario esperado (normalmente tu API o frontend)
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("gestion-turnos-key-supersegura-202445414815")), // clave secreta
         ClockSkew = TimeSpan.Zero       // Opcional: elimina la tolerancia del reloj para la expiración del token
     };
