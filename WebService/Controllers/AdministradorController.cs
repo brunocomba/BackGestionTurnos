@@ -36,8 +36,6 @@ namespace WebService.Controllers
                 new Claim(ClaimTypes.Role, "Administrador")
                 }),
                 Expires = DateTime.UtcNow.AddMinutes(60),
-                Issuer = _configuration["Jwt:Issuer"],
-                Audience = _configuration["Jwt:Audience"],
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
 
@@ -155,7 +153,6 @@ namespace WebService.Controllers
         }
 
 
-        [Authorize]
         [HttpPost("add")]
         public async Task<ActionResult<Administrador>> Add(AltaAdmDTO altaDto)
         {
