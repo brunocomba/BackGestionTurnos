@@ -4,6 +4,7 @@ using Microsoft.IdentityModel.Tokens;
 using Models.ConnectionDB;
 using Models.Managers;
 using System.Text;
+using WebService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,9 +31,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
-var jwtSettings = builder.Configuration.GetSection("Jwt");
-var key = Encoding.UTF8.GetBytes(jwtSettings["Key"]);
-
+var jwtSettings = new JwtSettings();
+builder.Configuration.Bind("Jwt", jwtSettings);
 
 // JWT Authentication configuration
 builder.Services.AddAuthentication(options =>
@@ -48,9 +48,9 @@ builder.Services.AddAuthentication(options =>
         ValidateAudience = true,        // Verifica el destinatario del token
         ValidateLifetime = true,        // Verifica la expiración del token
         ValidateIssuerSigningKey = true,// Verifica la clave de firma del token
-        ValidIssuer = "https://backgestionturnos.azurewebsites.net",  // Emisor de tu app
-        ValidAudience = jwtSettings.GetSection("Audience").Get<string[]>(), // Destinatario esperado (normalmente tu API o frontend)
-        IssuerSigningKey = new SymmetricSecurityKey(key),, // clave secreta
+        ValidIssuer = jwtSettings.Issuer,  // Emisor de tu app
+        ValidAudiences = jwtSettings.Audiences, // Destinatario esperado (normalmente tu API o frontend)
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("gestion-turnos-key-supersegura-202445414815")), // clave secreta
         ClockSkew = TimeSpan.Zero       // Opcional: elimina la tolerancia del reloj para la expiración del token
     };
 });
