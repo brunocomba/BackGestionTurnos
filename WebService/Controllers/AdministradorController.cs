@@ -45,7 +45,6 @@ namespace WebService.Controllers
         }
 
         [HttpPost("login")]
-        [AllowAnonymous] // Este método se puede acceder sin autenticación
         public async Task<ActionResult> LogIn(LoginDTO dto)
         {
             Administrador response;
