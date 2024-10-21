@@ -45,7 +45,7 @@ namespace Models.Managers
             return adm;
         }
 
-        public async Task<string> ValidateLogin(LoginDTO dto)
+        public async Task<Administrador> ValidateLogin(LoginDTO dto)
         {
             if (string.IsNullOrEmpty(dto.Email) || string.IsNullOrEmpty(dto.Password))
             {
@@ -68,7 +68,7 @@ namespace Models.Managers
                 throw new Exception("Email y/o contraseña incorrecta.");
             }
 
-            return "Inicio de sesion exitoso";
+            return adm;
 
         }
 

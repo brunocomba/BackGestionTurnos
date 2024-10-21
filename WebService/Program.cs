@@ -8,16 +8,6 @@ using WebService;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configuración de CORS
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowAllOrigins", builder =>
-    {
-        builder.AllowAnyOrigin()       // Permite todas las solicitudes de cualquier origen
-               .AllowAnyMethod()       // Permite cualquier método (GET, POST, etc.)
-               .AllowAnyHeader();      // Permite cualquier encabezado
-    });
-});
 
 // Add services to the container.
 
@@ -44,24 +34,51 @@ builder.Services.AddSwaggerGen();
 
 
 
-// JWT Authentication configuration
-builder.Services.AddAuthentication(options =>
+// Configuración de CORS
+builder.Services.AddCors(options =>
 {
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-})
-.AddJwtBearer(options =>
-{
-    options.TokenValidationParameters = new TokenValidationParameters
+    options.AddPolicy("AllowAllOrigins", builder =>
     {
-        ValidateIssuer = true,          // Verifica el emisor del token
-        ValidateAudience = true,        // Verifica el destinatario del token
-        ValidateLifetime = true,        // Verifica la expiración del token
-        ValidateIssuerSigningKey = true,// Verifica la clave de firma del token
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("gestion-turnos-key-supersegura-202445414815")), // clave secreta
-        ClockSkew = TimeSpan.Zero       // Opcional: elimina la tolerancia del reloj para la expiración del token
+        builder.AllowAnyOrigin()       // Permite todas las solicitudes de cualquier origen
+               .AllowAnyMethod()       // Permite cualquier método (GET, POST, etc.)
+               .AllowAnyHeader();      // Permite cualquier encabezado
+    });
+});
+
+
+// Evitar los ciclos
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+    });
+
+// JWT
+
+var key = builder.Configuration.GetValue<string>("Jwt:key");
+var keyBytes = Encoding.ASCII.GetBytes(key);
+
+builder.Services.AddAuthentication(config => {
+    config.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    config.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+
+}).AddJwtBearer(config =>
+{
+    config.RequireHttpsMetadata = false;
+    config.SaveToken = true;
+    config.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+    {
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(keyBytes),
+        ValidateIssuer = false,
+        ValidateAudience = false, // no  necesitamos validar desde donde esta validadndo el usurio
+        ValidateLifetime = true,
+        ClockSkew = TimeSpan.Zero
+
+
     };
 });
+
 
 
 

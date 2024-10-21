@@ -45,9 +45,10 @@ namespace WebService.Controllers
         }
 
         [HttpPost("login")]
+        [AllowAnonymous]
         public async Task<ActionResult> LogIn(LoginDTO dto)
         {
-            var response;
+            Administrador response;
             try
             {
                 response = await _administradorManager.ValidateLogin(dto);
@@ -60,12 +61,11 @@ namespace WebService.Controllers
 
 
             // Crear el token JWT
-            //var token = GenerateJwtToken(response);
-            return Ok();
-            //return Ok(new { token }); // Devuelve el token en un objeto
+            var token = GenerateJwtToken(response);
+            return Ok(new { token }); // Devuelve el token en un objeto
         }
 
-
+        [Authorize]
         [HttpGet("listado")]
         public async Task<ActionResult<IEnumerable<Administrador>>> Listado()
         {
