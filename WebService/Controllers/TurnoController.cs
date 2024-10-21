@@ -6,7 +6,6 @@ using Models.DTOs.Turno;
 
 namespace WebService.Controllers
 { 
-    [Authorize] // solo los usuarios autenticados puedan acceder a esos recursos    
     [ApiController]
     [Route("turnos")]
     public class TurnoController : ControllerBase
