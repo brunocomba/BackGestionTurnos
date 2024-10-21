@@ -52,18 +52,20 @@ namespace Models.Managers
                 throw new Exception("Error: Todos los campos deben estar completos");
             }
 
+            _v.CumpleRequisitosEmail(dto.Email);
+
             var adm = await _context.Administradores.FirstOrDefaultAsync(a => a.Email == dto.Email);
 
             // Verifica si se encontró el administrador
             if (adm == null)
             {
-                return null; // Devuelve null si no se encuentra el administrador
+                throw new Exception("Error: Email y/o contraseña incorrecta.");
             }
 
             // Verifica si la contraseña es correcta
             if (VerifyPassword(dto.Password, adm.Password) == false)
             {
-                return null; // Devuelve null si la contraseña es incorrecta
+                throw new Exception("Error: Email y/o contraseña incorrecta.");
             }
 
             return adm; // Credenciales válidas, devuelve el administrador

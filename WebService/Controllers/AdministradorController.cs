@@ -55,19 +55,15 @@ namespace WebService.Controllers
             }
             catch (Exception ex)
             {
-                return Conflict(ex.Message); // manejo para errores inesperados
+                return BadRequest($"Error: {ex.Message}");
             }
 
-            // Verifica si la respuesta es nula (credenciales inválidas)
-            if (response == null)
-            {
-                return Unauthorized("Error: Email y/o contraseña incorrecta.");
-            }
+
 
             // Crear el token JWT
-            var token = GenerateJwtToken(response);
-
-            return Ok(new { token }); // Devuelve el token en un objeto
+            //var token = GenerateJwtToken(response);
+            return Ok();
+            //return Ok(new { token }); // Devuelve el token en un objeto
         }
 
 
