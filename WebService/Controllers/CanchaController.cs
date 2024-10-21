@@ -6,7 +6,8 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace WebService.Controllers
 {
-    [ApiController]
+    [Authorize]
+    [ApiController] 
     [Route("canchas")]
     public class CanchaController : ControllerBase
     {

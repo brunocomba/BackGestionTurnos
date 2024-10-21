@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace WebService.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("elementoscancha")]
     public class ElementosCanchaController : ControllerBase

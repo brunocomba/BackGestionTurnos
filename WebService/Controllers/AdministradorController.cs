@@ -84,6 +84,7 @@ namespace WebService.Controllers
             }
         }
 
+        [Authorize]
         [HttpGet("buscar{id}")]
         public async Task<ActionResult<Administrador>> Buscar(int id)
         {
@@ -103,6 +104,7 @@ namespace WebService.Controllers
             }
         }
 
+        [Authorize]
         [HttpGet ("buscar/porDni{dni}")]
         public async Task<ActionResult<Administrador>> buscar_por_dni(int dni)
         {
@@ -123,6 +125,7 @@ namespace WebService.Controllers
         }
 
 
+        [Authorize]
         [HttpGet("filtrarPorNombreOApellido")]
         public async Task<ActionResult<IEnumerable<Administrador>>> Filtrar(string data)
         {
@@ -143,6 +146,7 @@ namespace WebService.Controllers
         }
 
 
+        [Authorize]
         [HttpPost("add")]
         public async Task<ActionResult<Administrador>> Add(AltaAdmDTO altaDto)
         {
@@ -162,6 +166,8 @@ namespace WebService.Controllers
             }
         }
 
+
+        [Authorize]
         [HttpPut("update/datospersonales")]
         public async Task<ActionResult<Administrador>> UpdateNombres(UpdateDatosPersonalesAdmDTO dto)
         {
@@ -182,6 +188,7 @@ namespace WebService.Controllers
         }
 
 
+        [Authorize]
         [HttpPut("update/email")]
         public async Task<ActionResult<Administrador>> UpdateUsuario(UpdateEmailAdmDTO dto)
         {
@@ -202,6 +209,7 @@ namespace WebService.Controllers
         }
 
 
+        [Authorize]
         [HttpPut("update/password")]
         public async Task<ActionResult<Administrador>> UpdatePass(UpdatePassAdmDTO dto)
         {
@@ -221,6 +229,8 @@ namespace WebService.Controllers
             }
         }
 
+
+        [Authorize]
         [HttpDelete("delete{id}")]
         public async Task<ActionResult<Administrador>> Delete(int id)
         {
