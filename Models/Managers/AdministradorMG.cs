@@ -26,6 +26,8 @@ namespace Models.Managers
             return BCrypt.Net.BCrypt.Verify(password, hashedPassword);
         }
 
+   
+
         public async Task<Administrador> BuscarPorDni(int dni)
         {
             _v.DniCompleto(dni);

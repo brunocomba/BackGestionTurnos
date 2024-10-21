@@ -105,6 +105,30 @@ namespace Models.Managers
             return timeSpan;
         }
 
+        public override async Task<IEnumerable<Turno>> GetAllAsync()
+        {
+            return await _context.Set<Turno>()
+                .Include(t => t.Administrador)
+                .Include(t => t.Cliente)
+                .Include(t => t.Cancha)
+                .ToListAsync();
+
+        }
+
+        public override async Task<Turno> GetByIdAsync(int id)
+        {
+            var turno = await _context.Set<Turno>()
+                .Include (t => t.Administrador)
+                .Include(t => t.Cliente)
+                .Include(t => t.Cancha)
+                .FirstOrDefaultAsync(t => t.Id == id);
+
+            if (turno == null)
+            {
+                throw new Exception($"No se encontró Turno con el ID {id}");
+            }
+            return turno;
+        }
 
         // METODOS CRUD
         public async Task<string> RegistrarAsync(AltaTurnoDTO dto)
@@ -233,9 +257,13 @@ namespace Models.Managers
             // Calcular el final de la semana (domingo)
             DateTime finSemana = inicioSemana.AddDays(6);
 
-
+            
             // Filtrar los turnos que están en ese rango
-            var turnosDeLaSemana = await _context.Turnos.Where(t => t.Fecha >= inicioSemana && t.Fecha <= finSemana).ToListAsync();
+            var turnosDeLaSemana = await _context.Turnos.Where(t => t.Fecha >= inicioSemana && t.Fecha <= finSemana)
+                .Include(t => t.Administrador)
+                .Include(t => t.Cliente)
+                .Include(t => t.Cancha)
+                .ToListAsync();
 
             return turnosDeLaSemana;
 
@@ -247,14 +275,21 @@ namespace Models.Managers
             int año = fecha.Year;
 
             // Filtrar turnos que coincidan con el mes y año proporcionados
-            var turnosDelMes = await _context.Turnos.Where(t => t.Fecha.Month == mes && t.Fecha.Year == año).ToListAsync();
+            var turnosDelMes = await _context.Turnos.Where(t => t.Fecha.Month == mes && t.Fecha.Year == año).Include(t => t.Administrador)
+                .Include(t => t.Cliente)
+                .Include(t => t.Cancha)
+                .ToListAsync();
+
 
             return turnosDelMes;
         }
 
         public async Task<IEnumerable<Turno>> TurnosDelDia(DateTime fecha)
         {
-            var turnosDelDia = await _context.Turnos.Where(t => t.Fecha.Date == fecha.Date).ToListAsync();
+            var turnosDelDia = await _context.Turnos.Where(t => t.Fecha.Date == fecha.Date).Include(t => t.Administrador)
+                .Include(t => t.Cliente)
+                .Include(t => t.Cancha)
+                .ToListAsync();
 
             return turnosDelDia;
         }
@@ -273,7 +308,11 @@ namespace Models.Managers
 
             // Filtra los turnos que coinciden con el nombre, apellido o DNI del cliente
             var turnosFiltrados =  await _context.Turnos.Where(t => t.Cliente.Nombre.ToUpper().Contains(criterio.ToUpper()) || t.Cliente.Apellido.ToUpper().Contains(criterio.ToUpper()) ||
-                             (esNumero == true && t.Cliente.Dni == dni)).ToListAsync();
+                             (esNumero == true && t.Cliente.Dni == dni)).Include(t => t.Administrador)
+                .Include(t => t.Cliente)
+                .Include(t => t.Cancha)
+                .ToListAsync();
+
 
             return turnosFiltrados;
         }

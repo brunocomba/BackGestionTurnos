@@ -60,6 +60,30 @@ namespace Models.Managers
         }
 
 
+        public override async Task<IEnumerable<ElementosCancha>> GetAllAsync()
+        {
+            return await _context.Set<ElementosCancha>()
+                .Include(ec => ec.Cancha)
+                .Include(ec => ec.Elemento)
+                .ToListAsync();
+
+        }
+
+        public override async Task<ElementosCancha> GetByIdAsync(int id)
+        {
+            var turno = await _context.Set<ElementosCancha>()
+                .Include(ec => ec.Cancha)
+                .Include(ec => ec.Elemento)
+                .FirstOrDefaultAsync(ec => ec.Id == id);
+
+            if (turno == null)
+            {
+                throw new Exception($"No se encontró adignacion de elemento a cancha con el ID {id}");
+            }
+            return turno;
+        }
+
+
         public async Task<string> AddAsync(AltaAsignacionElementoDTO dto)
         {
 
