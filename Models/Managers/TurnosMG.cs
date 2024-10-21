@@ -146,14 +146,15 @@ namespace Models.Managers
 
             Turno turno = new Turno();
             {
-                turno.Horario = formatoHr; turno.Fecha = dto.Fecha.Date ;turno.Cliente = cliente; turno.Cancha = cancha; turno.Administrador = adm;
+                turno.Horario = formatoHr; turno.Fecha = dto.Fecha.Date; turno.Cliente = cliente; turno.Cancha = cancha; turno.Administrador = adm;
             }
            
             await _context.Turnos.AddAsync(turno);
             await _context.SaveChangesAsync();
 
-            return $"Turno registrado con exito.\nDia: {turno.Fecha.Date}\nHorario: {turno.Horario}\nCancha: {turno.Cancha.Name}\nCliente: {turno.Cliente.Nombre} {turno.Cliente.Apellido}\n" +
-                $"Precio por jugador> ${CalcularPrecioPorJugador(cancha)}";
+
+            return $"Turno registrado con exito.\nDia: {turno.Fecha.ToString("yyyy-MM-dd")}\nHorario: {turno.Horario.ToString(@"hh\:mm")}\nCancha: {turno.Cancha.Name}\nCliente: {turno.Cliente.Nombre} {turno.Cliente.Apellido}\n" +
+                $"Precio por jugador ${CalcularPrecioPorJugador(cancha)}";
 
         }
 
