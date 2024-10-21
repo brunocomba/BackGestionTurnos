@@ -49,7 +49,7 @@ namespace Models.Managers
         {
             if (string.IsNullOrEmpty(dto.Email) || string.IsNullOrEmpty(dto.Password))
             {
-                throw new Exception("Error: Todos los campos deben estar completos");
+                throw new Exception("Todos los campos deben estar completos");
             }
 
             _v.CumpleRequisitosEmail(dto.Email);
@@ -59,13 +59,13 @@ namespace Models.Managers
             // Verifica si se encontró el administrador
             if (adm == null)
             {
-                throw new Exception("Error: Email y/o contraseña incorrecta.");
+                throw new Exception("Email y/o contraseña incorrecta.");
             }
 
             // Verifica si la contraseña es correcta
             if (VerifyPassword(dto.Password, adm.Password) == false)
             {
-                throw new Exception("Error: Email y/o contraseña incorrecta.");
+                throw new Exception("Email y/o contraseña incorrecta.");
             }
 
             return "Inicio de sesion exitoso";
@@ -78,7 +78,7 @@ namespace Models.Managers
             if (string.IsNullOrEmpty(dto.Nombre) || string.IsNullOrEmpty(dto.Apellido) || string.IsNullOrEmpty(dto.Calle) || string.IsNullOrEmpty(dto.Email)
                 || string.IsNullOrEmpty(dto.confirEmail) || string.IsNullOrEmpty(dto.Password) || string.IsNullOrEmpty(dto.confirPass))
             {
-                throw new Exception("Error: Todos los campos deben estar completos");
+                throw new Exception("Todos los campos deben estar completos");
             }
 
             _v.MayorDe0(dto.Altura); _v.MayorDe0(dto.Dni); 

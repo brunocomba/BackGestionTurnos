@@ -9,6 +9,6 @@
     "\\WebService",
     "\\WebService\\Controllers"
   ],
-  "SelectedNode": "\\WebService\\Controllers\\AdministradorController.cs",
+  "SelectedNode": "\\Models\\Managers\\AdministradorMG.cs",
   "PreviewInSolutionExplorer": false
 }
