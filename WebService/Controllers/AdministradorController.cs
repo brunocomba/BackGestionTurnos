@@ -47,7 +47,7 @@ namespace WebService.Controllers
         [HttpPost("login")]
         public async Task<ActionResult> LogIn(LoginDTO dto)
         {
-            Administrador response;
+            var response;
             try
             {
                 response = await _administradorManager.ValidateLogin(dto);
