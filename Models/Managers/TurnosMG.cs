@@ -171,7 +171,6 @@ namespace Models.Managers
             EsFechaPasada(dto.fechaNew);
 
             var formatoHr = ConvertirStringEnTimeSpan(dto.Horario);
-            EsHorarioPasado(formatoHr);
             TurnoRegistrado(formatoHr, turno.Fecha, turno.Cancha);
 
             var clienteNew = await _clienteManager.GetByIdAsync(dto.idClienteNew);
