@@ -158,89 +158,40 @@ namespace Models.Managers
 
         }
 
-             
-        public async Task<string> UpdateDay(UpdateDayTurnoDTO dto)
+        
+
+        public async Task<string>Update(UpdateDTO dto)
         {
             _v.MayorDe0(dto.idTurnoMod);
             _v.SoloNumeros(dto.idTurnoMod);
+
             var turno = await _v.IdRegistrado(dto.idTurnoMod);
+
             EsFechaPasada(dto.fechaNew);
             TurnoRegistrado(turno.Horario, dto.fechaNew, turno.Cancha);
 
+            var formatoHr = ConvertirStringEnTimeSpan(dto.Horario);
+            EsHorarioPasado(formatoHr);
+            TurnoRegistrado(formatoHr, turno.Fecha, turno.Cancha);
+
+            var clienteNew = await _clienteManager.GetByIdAsync(dto.idClienteNew);
+            ClienteConMismaFechaTurno(turno, clienteNew);
+
+            var canchaNew = await _canchaManager.GetByIdAsync(dto.idCanchaNew);
+
+            CanchaConMismaFechaTurno(turno, canchaNew);
+
             // modificar fecha
             turno.Fecha = dto.fechaNew.Date;
+            turno.Horario = formatoHr;
+            turno.Cliente = clienteNew;
+            turno.Cancha = canchaNew;
+
 
             _context.Turnos.Update(turno);
             await _context.SaveChangesAsync();
 
             return ("Turno actualizado con exito");
-        }
-
-
-        public async Task<string> UpdateHorario(UpdateHorarioTurnoDTO dto)
-        {
-            _v.MayorDe0(dto.idTurnoMod);
-            _v.SoloNumeros(dto.idTurnoMod);
-            var turnoMod = await _v.IdRegistrado(dto.idTurnoMod);
-
-            if (dto.Horario == null)
-            {
-                throw new Exception("Error: Debe ingresar un horario");
-            }
-
-            var formatoHr = ConvertirStringEnTimeSpan(dto.Horario);
-            EsHorarioPasado(formatoHr);
-            TurnoRegistrado(formatoHr, turnoMod.Fecha, turnoMod.Cancha);
-
-            // Modificar fecha
-            turnoMod.Horario = formatoHr;
-
-            _context.Turnos.Update(turnoMod);
-            await _context.SaveChangesAsync();
-
-            return $"Turno actualizado con exito";
-        }
-
-
-        public async Task<string> UpdateCliente(UpdateClienteTurnoDTO dto)
-        {
-            _v.MayorDe0(dto.idClienteNew); _v.MayorDe0(dto.idTurnoMod);
-            _v.SoloNumeros(dto.idClienteNew); _v.SoloNumeros(dto.idTurnoMod);
-
-            var turnoMod = await _v.IdRegistrado(dto.idTurnoMod);
-
-            var clienteNew = await _clienteManager.GetByIdAsync(dto.idClienteNew);
-
-            ClienteConMismaFechaTurno(turnoMod, clienteNew);
-
-            // Modificar cliente
-            turnoMod.Cliente = clienteNew;
-
-            _context.Turnos.Update(turnoMod);
-            await _context.SaveChangesAsync();
-
-            return $"Modificacion realizada con exito";
-
-        }
-
-
-        public async Task<string> UpdateCancha(UpdateCanchaTurnoDTO dto)
-        {
-            _v.MayorDe0(dto.idCanchaNew); _v.MayorDe0(dto.idTurnoMod);
-            _v.SoloNumeros(dto.idCanchaNew); _v.SoloNumeros(dto.idTurnoMod);
-
-            var turnoMod = await _v.IdRegistrado(dto.idTurnoMod);
-            var canchaNew = await _canchaManager.GetByIdAsync(dto.idCanchaNew);
-
-            CanchaConMismaFechaTurno(turnoMod, canchaNew);
-           
-            // Modificar fecha
-            turnoMod.Cancha = canchaNew;
-
-            _context.Turnos.Update(turnoMod);
-            await _context.SaveChangesAsync();
-
-            return $"Modificacion realizada con exito";
         }
 
 

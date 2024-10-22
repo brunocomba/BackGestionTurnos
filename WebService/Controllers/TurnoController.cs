@@ -164,13 +164,13 @@ namespace WebService.Controllers
         }
 
 
-        [HttpPut("updateDay")]
-        public async Task<ActionResult<Turno>> UpdateDay(UpdateDayTurnoDTO dto)
+        [HttpPut("update")]
+        public async Task<ActionResult<Turno>> Update(UpdateDTO dto)
         {
             string response;
             try
             {
-                response = await _turnosmanager.UpdateDay(dto);
+                response = await _turnosmanager.Update(dto);
                 return Ok(response);
             }
             catch (UnauthorizedAccessException)
@@ -184,65 +184,7 @@ namespace WebService.Controllers
         }
 
 
-        [HttpPut("updateHorario")]
-        public async Task<ActionResult<Turno>> UpdateHorario(UpdateHorarioTurnoDTO dto)
-        {
-            string response;
-            try
-            {
-                response = await _turnosmanager.UpdateHorario(dto);
-                return Ok(response);
-            }
-            catch (UnauthorizedAccessException)
-            {
-                return Unauthorized("No tienes permiso para acceder a este recurso.");
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
-            }
-        }
-
-
-        [HttpPut("updateCliente")]
-        public async Task<ActionResult<Turno>> UpdateCliente(UpdateClienteTurnoDTO dto)
-        {
-            string response;
-            try
-            {
-                response = await _turnosmanager.UpdateCliente(dto);
-                return Ok(response);
-            }
-            catch (UnauthorizedAccessException)
-            {
-                return Unauthorized("No tienes permiso para acceder a este recurso.");
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
-            }
-        }
-
-
-        [HttpPut("updateCancha")]
-        public async Task<ActionResult<Turno>> UpdateCancha(UpdateCanchaTurnoDTO dto)
-        {
-            string response;
-            try
-            {
-                response = await _turnosmanager.UpdateCancha(dto);
-                return Ok(response);
-            }
-            catch (UnauthorizedAccessException)
-            {
-                return Unauthorized("No tienes permiso para acceder a este recurso.");
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
-            }
-        }
-
+        
 
         [HttpDelete("delete{id}")]
         public async Task<ActionResult<Turno>> Delete(int id)

@@ -3,20 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8717001D-D599-4F3E-B681-DACEA233ACA0}|WebService\\WebService.csproj|C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\webservice\\controllers\\administradorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8717001D-D599-4F3E-B681-DACEA233ACA0}|WebService\\WebService.csproj|C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\webservice\\controllers\\turnocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8717001D-D599-4F3E-B681-DACEA233ACA0}|WebService\\WebService.csproj|solutionrelative:webservice\\controllers\\turnocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{36A59ED2-E8A8-4C7E-8AC3-A878E382F5E7}|Models\\Models.csproj|C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\models\\managers\\turnosmg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{36A59ED2-E8A8-4C7E-8AC3-A878E382F5E7}|Models\\Models.csproj|solutionrelative:models\\managers\\turnosmg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{36A59ED2-E8A8-4C7E-8AC3-A878E382F5E7}|Models\\Models.csproj|c:\\users\\brcom\\onedrive\\documentos\\github\\backgestionturnos\\models\\dtos\\turno\\updatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{36A59ED2-E8A8-4C7E-8AC3-A878E382F5E7}|Models\\Models.csproj|solutionrelative:models\\dtos\\turno\\updatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8717001D-D599-4F3E-B681-DACEA233ACA0}|WebService\\WebService.csproj|c:\\users\\brcom\\onedrive\\documentos\\github\\backgestionturnos\\webservice\\controllers\\administradorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8717001D-D599-4F3E-B681-DACEA233ACA0}|WebService\\WebService.csproj|solutionrelative:webservice\\controllers\\administradorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{36A59ED2-E8A8-4C7E-8AC3-A878E382F5E7}|Models\\Models.csproj|c:\\users\\brcom\\onedrive\\documentos\\github\\backgestionturnos\\models\\clases\\loginresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{36A59ED2-E8A8-4C7E-8AC3-A878E382F5E7}|Models\\Models.csproj|C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\models\\clases\\loginresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{36A59ED2-E8A8-4C7E-8AC3-A878E382F5E7}|Models\\Models.csproj|solutionrelative:models\\clases\\loginresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{36A59ED2-E8A8-4C7E-8AC3-A878E382F5E7}|Models\\Models.csproj|C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\models\\clases\\turno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{36A59ED2-E8A8-4C7E-8AC3-A878E382F5E7}|Models\\Models.csproj|solutionrelative:models\\clases\\turno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8717001D-D599-4F3E-B681-DACEA233ACA0}|WebService\\WebService.csproj|C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\webservice\\controllers\\turnocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8717001D-D599-4F3E-B681-DACEA233ACA0}|WebService\\WebService.csproj|solutionrelative:webservice\\controllers\\turnocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{36A59ED2-E8A8-4C7E-8AC3-A878E382F5E7}|Models\\Models.csproj|C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\models\\managers\\administradormg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -49,10 +57,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8717001D-D599-4F3E-B681-DACEA233ACA0}|WebService\\WebService.csproj|C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\webservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{8717001D-D599-4F3E-B681-DACEA233ACA0}|WebService\\WebService.csproj|solutionrelative:webservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{36A59ED2-E8A8-4C7E-8AC3-A878E382F5E7}|Models\\Models.csproj|C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\models\\managers\\turnosmg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{36A59ED2-E8A8-4C7E-8AC3-A878E382F5E7}|Models\\Models.csproj|solutionrelative:models\\managers\\turnosmg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{36A59ED2-E8A8-4C7E-8AC3-A878E382F5E7}|Models\\Models.csproj|C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\models\\managers\\elementoscanchamg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -134,7 +138,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 389,
-          "SelectedChildIndex": 21,
+          "SelectedChildIndex": 14,
           "Children": [
             {
               "$type": "Bookmark",
@@ -154,7 +158,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
+              "Title": "UpdateDTO.cs",
+              "DocumentMoniker": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\Models\\DTOs\\Turno\\UpdateDTO.cs",
+              "RelativeDocumentMoniker": "Models\\DTOs\\Turno\\UpdateDTO.cs",
+              "ToolTip": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\Models\\DTOs\\Turno\\UpdateDTO.cs",
+              "RelativeToolTip": "Models\\DTOs\\Turno\\UpdateDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAgAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T02:48:37.672Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "LoginResponse.cs",
               "DocumentMoniker": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\Models\\Clases\\LoginResponse.cs",
               "RelativeDocumentMoniker": "Models\\Clases\\LoginResponse.cs",
@@ -162,12 +179,11 @@
               "RelativeToolTip": "Models\\Clases\\LoginResponse.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T01:14:33.884Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-22T01:14:33.884Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "Turno.cs",
               "DocumentMoniker": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\Models\\Clases\\Turno.cs",
               "RelativeDocumentMoniker": "Models\\Clases\\Turno.cs",
@@ -179,7 +195,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "ElementosCancha.cs",
               "DocumentMoniker": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\Models\\Clases\\ElementosCancha.cs",
               "RelativeDocumentMoniker": "Models\\Clases\\ElementosCancha.cs",
@@ -191,7 +207,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "Elemento.cs",
               "DocumentMoniker": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\Models\\Clases\\Elemento.cs",
               "RelativeDocumentMoniker": "Models\\Clases\\Elemento.cs",
@@ -203,7 +219,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "Deporte.cs",
               "DocumentMoniker": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\Models\\Clases\\Deporte.cs",
               "RelativeDocumentMoniker": "Models\\Clases\\Deporte.cs",
@@ -215,7 +231,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "ElementoMG.cs",
               "DocumentMoniker": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\Models\\Managers\\ElementoMG.cs",
               "RelativeDocumentMoniker": "Models\\Managers\\ElementoMG.cs",
@@ -227,7 +243,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "CanchaMG.cs",
               "DocumentMoniker": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\Models\\Managers\\CanchaMG.cs",
               "RelativeDocumentMoniker": "Models\\Managers\\CanchaMG.cs",
@@ -239,7 +255,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "AltaTurnoDTO.cs",
               "DocumentMoniker": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\Models\\DTOs\\Turno\\AltaTurnoDTO.cs",
               "RelativeDocumentMoniker": "Models\\DTOs\\Turno\\AltaTurnoDTO.cs",
@@ -251,7 +267,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "appsettings.Development.json",
               "DocumentMoniker": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\WebService\\appsettings.Development.json",
               "RelativeDocumentMoniker": "WebService\\appsettings.Development.json",
@@ -263,19 +279,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "TurnoController.cs",
               "DocumentMoniker": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\WebService\\Controllers\\TurnoController.cs",
               "RelativeDocumentMoniker": "WebService\\Controllers\\TurnoController.cs",
               "ToolTip": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\WebService\\Controllers\\TurnoController.cs",
               "RelativeToolTip": "WebService\\Controllers\\TurnoController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAPAAAA",
+              "ViewState": "AQIAAKEAAAAAAAAAAAAqwLoAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-05T17:15:21.09Z"
+              "WhenOpened": "2024-10-05T17:15:21.09Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "Cancha.cs",
               "DocumentMoniker": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\Models\\Clases\\Cancha.cs",
               "RelativeDocumentMoniker": "Models\\Clases\\Cancha.cs",
@@ -287,7 +304,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 27,
               "Title": "IConDni.cs",
               "DocumentMoniker": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\Models\\Interfaces\\IConDni.cs",
               "RelativeDocumentMoniker": "Models\\Interfaces\\IConDni.cs",
@@ -299,7 +316,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "DeporteController.cs",
               "DocumentMoniker": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\WebService\\Controllers\\DeporteController.cs",
               "RelativeDocumentMoniker": "WebService\\Controllers\\DeporteController.cs",
@@ -311,7 +328,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "ClienteController.cs",
               "DocumentMoniker": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\WebService\\Controllers\\ClienteController.cs",
               "RelativeDocumentMoniker": "WebService\\Controllers\\ClienteController.cs",
@@ -323,7 +340,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "CanchaController.cs",
               "DocumentMoniker": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\WebService\\Controllers\\CanchaController.cs",
               "RelativeDocumentMoniker": "WebService\\Controllers\\CanchaController.cs",
@@ -335,7 +352,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "AdministradorMG.cs",
               "DocumentMoniker": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\Models\\Managers\\AdministradorMG.cs",
               "RelativeDocumentMoniker": "Models\\Managers\\AdministradorMG.cs",
@@ -347,7 +364,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "IConName.cs",
               "DocumentMoniker": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\Models\\Interfaces\\IConName.cs",
               "RelativeDocumentMoniker": "Models\\Interfaces\\IConName.cs",
@@ -359,7 +376,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "AdministradorController.cs",
               "DocumentMoniker": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\WebService\\Controllers\\AdministradorController.cs",
               "RelativeDocumentMoniker": "WebService\\Controllers\\AdministradorController.cs",
@@ -372,7 +389,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "Models.csproj",
               "DocumentMoniker": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\Models\\Models.csproj",
               "RelativeDocumentMoniker": "Models\\Models.csproj",
@@ -384,7 +401,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "ElementoController.cs",
               "DocumentMoniker": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\WebService\\Controllers\\ElementoController.cs",
               "RelativeDocumentMoniker": "WebService\\Controllers\\ElementoController.cs",
@@ -396,7 +413,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\WebService\\Program.cs",
               "RelativeDocumentMoniker": "WebService\\Program.cs",
@@ -408,7 +425,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "Models.AssemblyInfo.cs",
               "DocumentMoniker": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\Models\\obj\\Debug\\net8.0\\Models.AssemblyInfo.cs",
               "RelativeDocumentMoniker": "Models\\obj\\Debug\\net8.0\\Models.AssemblyInfo.cs",
@@ -420,7 +437,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "WebService.csproj",
               "DocumentMoniker": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\WebService\\WebService.csproj",
               "RelativeDocumentMoniker": "WebService\\WebService.csproj",
@@ -432,7 +449,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 31,
               "Title": "IValidaciones.cs",
               "DocumentMoniker": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\Models\\Interfaces\\IValidaciones.cs",
               "RelativeDocumentMoniker": "Models\\Interfaces\\IValidaciones.cs",
@@ -444,7 +461,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "ElementosCanchaMG.cs",
               "DocumentMoniker": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\Models\\Managers\\ElementosCanchaMG.cs",
               "RelativeDocumentMoniker": "Models\\Managers\\ElementosCanchaMG.cs",
@@ -456,19 +473,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 1,
               "Title": "TurnosMG.cs",
               "DocumentMoniker": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\Models\\Managers\\TurnosMG.cs",
               "RelativeDocumentMoniker": "Models\\Managers\\TurnosMG.cs",
               "ToolTip": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\Models\\Managers\\TurnosMG.cs",
               "RelativeToolTip": "Models\\Managers\\TurnosMG.cs",
-              "ViewState": "AQIAAPsAAAAAAAAAAAAAAB8BAAAFAAAA",
+              "ViewState": "AQIAAJIAAAAAAAAAAAAQwKIAAAA2AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-25T06:58:46.156Z"
+              "WhenOpened": "2024-09-25T06:58:46.156Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "Validaciones.cs",
               "DocumentMoniker": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\Models\\Validaciones.cs",
               "RelativeDocumentMoniker": "Models\\Validaciones.cs",
@@ -480,7 +498,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "ElementosCanchaController.cs",
               "DocumentMoniker": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\WebService\\Controllers\\ElementosCanchaController.cs",
               "RelativeDocumentMoniker": "WebService\\Controllers\\ElementosCanchaController.cs",
@@ -492,7 +510,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 30,
               "Title": "IGenericMG.cs",
               "DocumentMoniker": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\Models\\Interfaces\\IGenericMG.cs",
               "RelativeDocumentMoniker": "Models\\Interfaces\\IGenericMG.cs",
@@ -504,7 +522,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\WebService\\appsettings.json",
               "RelativeDocumentMoniker": "WebService\\appsettings.json",
@@ -516,7 +534,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "DesignTimeDbcontext.cs",
               "DocumentMoniker": "C:\\Users\\brcom\\OneDrive\\Documentos\\GitHub\\BackGestionTurnos\\Models\\DesignTimeDbcontext.cs",
               "RelativeDocumentMoniker": "Models\\DesignTimeDbcontext.cs",
