@@ -48,10 +48,10 @@ namespace WebService.Controllers
         [AllowAnonymous]
         public async Task<ActionResult> LogIn(LoginDTO dto)
         {
-            Administrador response;
+            Administrador adm;
             try
             {
-                response = await _administradorManager.ValidateLogin(dto);
+                adm = await _administradorManager.ValidateLogin(dto);
             }
             catch (Exception ex)
             {
@@ -61,8 +61,15 @@ namespace WebService.Controllers
 
 
             // Crear el token JWT
-            var token = GenerateJwtToken(response);
-            return Ok(new { token }); // Devuelve el token en un objeto
+            var token = GenerateJwtToken(adm);
+
+            var response = new LoginResponse()
+            {
+                Token = token,
+                Admin = adm.Nombre + adm.Apellido
+            };
+
+            return Ok(response); // Devuelve el token en un objeto
         }
 
         [Authorize]
