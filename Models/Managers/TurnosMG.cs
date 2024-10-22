@@ -28,7 +28,7 @@ namespace Models.Managers
             {
                 if (turno.Horario == horario && turno.Fecha.Date == fecha.Date && turno.Cancha == cancha)
                 {
-                    throw new Exception($"Error: El turno solicitado ya se encuentra registrado.");
+                    throw new Exception($"El turno solicitado ya se encuentra registrado.");
                 }
             }
             return false;
@@ -40,7 +40,7 @@ namespace Models.Managers
 
             if (fecha.Date < fechaHoy)
             {
-                throw new Exception("Error: No se puede registrar un turno con una fecha anterior a la actual.");
+                throw new Exception(" No se puede registrar un turno con una fecha anterior a la actual.");
             }
             return false;
         }
@@ -51,7 +51,7 @@ namespace Models.Managers
 
             if (horario < tiempoActual)
             {
-                throw new Exception("Error: No se puede registrar un turno con un horario anterior a la actual.");
+                throw new Exception("No se puede registrar un turno con un horario anterior a la actual.");
             }
             return false;
 
@@ -169,7 +169,6 @@ namespace Models.Managers
             var turno = await GetByIdAsync(dto.idTurnoMod);
 
             EsFechaPasada(dto.fechaNew);
-            TurnoRegistrado(turno.Horario, dto.fechaNew, turno.Cancha);
 
             var formatoHr = ConvertirStringEnTimeSpan(dto.Horario);
             EsHorarioPasado(formatoHr);
