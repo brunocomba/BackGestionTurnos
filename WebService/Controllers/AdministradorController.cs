@@ -66,7 +66,7 @@ namespace WebService.Controllers
             var response = new LoginResponse()
             {
                 Token = token,
-                Admin = adm.Nombre + adm.Apellido
+                Admin = $"{adm.Nombre} {adm.Apellido}"
             };
 
             return Ok(response); // Devuelve el token en un objeto
