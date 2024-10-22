@@ -65,12 +65,12 @@ namespace Models.Managers
             return precioCancha / cantJugadores;
         }
 
-        private bool ClienteConMismaFechaTurno(Turno turnoDado, Cliente cliente)
+        private bool ClienteConMismaFechaTurno(DateTime fechaNew, TimeSpan horarioNew, Cliente cliente)
         {
             var turnos =  _context.Turnos.ToList();   
             foreach (var turno in turnos)
             {
-                if (turno.Cliente == cliente && turnoDado.Fecha == turno.Fecha && turnoDado.Horario == turno.Horario)
+                if (turno.Cliente == cliente && fechaNew.Date == turno.Fecha.Date && horarioNew == turno.Horario)
                 {
                     throw new Exception("El cliente que quieres cambiar ya tiene un turno registrado para el mismo dia y horario.");
                 }
@@ -79,12 +79,12 @@ namespace Models.Managers
 
         } 
 
-        private bool CanchaConMismaFechaTurno(Turno turnoDado, Cancha cancha)
+        private bool CanchaConMismaFechaTurno(DateTime fechaNew, TimeSpan horarioNew, Cancha cancha)
         {
             var turnos = _context.Turnos.ToList();
             foreach (var turno in turnos)
             {
-                if (turno.Cancha == cancha && turnoDado.Fecha == turno.Fecha && turnoDado.Horario == turno.Horario)
+                if (turno.Cancha == cancha && fechaNew.Date == turno.Fecha.Date && horarioNew == turno.Horario)
                 {
                     throw new Exception("La cancha que quieres cambiar ya tiene un turno registrado para el mismo dia y horario.");
                 }
@@ -130,13 +130,14 @@ namespace Models.Managers
             return turno;
         }
 
+     
+
         // METODOS CRUD
         public async Task<string> RegistrarAsync(AltaTurnoDTO dto)
         {
             var formatoHr = ConvertirStringEnTimeSpan(dto.Horario);
             _v.MayorDe0(dto.idCliente); _v.MayorDe0(dto.idCancha);
 
-            var adm = await _admManager.GetByIdAsync(dto.idAdm);
             var cancha = await _canchaManager.GetByIdAsync(dto.idCancha);
             var cliente = await _clienteManager.GetByIdAsync(dto.idCliente);
             
@@ -146,7 +147,7 @@ namespace Models.Managers
 
             Turno turno = new Turno();
             {
-                turno.Horario = formatoHr; turno.Fecha = dto.Fecha.Date; turno.Cliente = cliente; turno.Cancha = cancha; turno.Administrador = adm;
+                turno.Horario = formatoHr; turno.Fecha = dto.Fecha.Date; turno.Cliente = cliente; turno.Cancha = cancha;
             }
            
             await _context.Turnos.AddAsync(turno);
@@ -165,7 +166,7 @@ namespace Models.Managers
             _v.MayorDe0(dto.idTurnoMod);
             _v.SoloNumeros(dto.idTurnoMod);
 
-            var turno = await _v.IdRegistrado(dto.idTurnoMod);
+            var turno = await GetByIdAsync(dto.idTurnoMod);
 
             EsFechaPasada(dto.fechaNew);
             TurnoRegistrado(turno.Horario, dto.fechaNew, turno.Cancha);
@@ -175,11 +176,11 @@ namespace Models.Managers
             TurnoRegistrado(formatoHr, turno.Fecha, turno.Cancha);
 
             var clienteNew = await _clienteManager.GetByIdAsync(dto.idClienteNew);
-            ClienteConMismaFechaTurno(turno, clienteNew);
+            ClienteConMismaFechaTurno(dto.fechaNew, formatoHr,  clienteNew);
 
             var canchaNew = await _canchaManager.GetByIdAsync(dto.idCanchaNew);
 
-            CanchaConMismaFechaTurno(turno, canchaNew);
+            CanchaConMismaFechaTurno(dto.fechaNew, formatoHr, canchaNew);
 
             // modificar fecha
             turno.Fecha = dto.fechaNew.Date;

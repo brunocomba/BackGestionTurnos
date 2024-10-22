@@ -1,3 +1,10 @@
+C:\Users\brcom\OneDrive\Documentos\GitHub\BackGestionTurnos\WebService\obj\Debug\net8.0\win-x64\WebService.csproj.AssemblyReference.cache
+C:\Users\brcom\OneDrive\Documentos\GitHub\BackGestionTurnos\WebService\obj\Debug\net8.0\win-x64\WebService.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\brcom\OneDrive\Documentos\GitHub\BackGestionTurnos\WebService\obj\Debug\net8.0\win-x64\WebService.AssemblyInfoInputs.cache
+C:\Users\brcom\OneDrive\Documentos\GitHub\BackGestionTurnos\WebService\obj\Debug\net8.0\win-x64\WebService.AssemblyInfo.cs
+C:\Users\brcom\OneDrive\Documentos\GitHub\BackGestionTurnos\WebService\obj\Debug\net8.0\win-x64\WebService.csproj.CoreCompileInputs.cache
+C:\Users\brcom\OneDrive\Documentos\GitHub\BackGestionTurnos\WebService\obj\Debug\net8.0\win-x64\WebService.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\brcom\OneDrive\Documentos\GitHub\BackGestionTurnos\WebService\obj\Debug\net8.0\win-x64\WebService.sourcelink.json
 C:\Users\brcom\OneDrive\Documentos\GitHub\BackGestionTurnos\WebService\bin\Debug\net8.0\win-x64\appsettings.Development.json
 C:\Users\brcom\OneDrive\Documentos\GitHub\BackGestionTurnos\WebService\bin\Debug\net8.0\win-x64\appsettings.json
 C:\Users\brcom\OneDrive\Documentos\GitHub\BackGestionTurnos\WebService\bin\Debug\net8.0\win-x64\WebService.exe
@@ -434,14 +441,7 @@ C:\Users\brcom\OneDrive\Documentos\GitHub\BackGestionTurnos\WebService\bin\Debug
 C:\Users\brcom\OneDrive\Documentos\GitHub\BackGestionTurnos\WebService\bin\Debug\net8.0\win-x64\aspnetcorev2_inprocess.dll
 C:\Users\brcom\OneDrive\Documentos\GitHub\BackGestionTurnos\WebService\bin\Debug\net8.0\win-x64\Models.dll
 C:\Users\brcom\OneDrive\Documentos\GitHub\BackGestionTurnos\WebService\bin\Debug\net8.0\win-x64\Models.pdb
-C:\Users\brcom\OneDrive\Documentos\GitHub\BackGestionTurnos\WebService\obj\Debug\net8.0\win-x64\WebService.csproj.AssemblyReference.cache
-C:\Users\brcom\OneDrive\Documentos\GitHub\BackGestionTurnos\WebService\obj\Debug\net8.0\win-x64\WebService.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\brcom\OneDrive\Documentos\GitHub\BackGestionTurnos\WebService\obj\Debug\net8.0\win-x64\WebService.AssemblyInfoInputs.cache
-C:\Users\brcom\OneDrive\Documentos\GitHub\BackGestionTurnos\WebService\obj\Debug\net8.0\win-x64\WebService.AssemblyInfo.cs
-C:\Users\brcom\OneDrive\Documentos\GitHub\BackGestionTurnos\WebService\obj\Debug\net8.0\win-x64\WebService.csproj.CoreCompileInputs.cache
 C:\Users\brcom\OneDrive\Documentos\GitHub\BackGestionTurnos\WebService\obj\Debug\net8.0\win-x64\WebService.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\brcom\OneDrive\Documentos\GitHub\BackGestionTurnos\WebService\obj\Debug\net8.0\win-x64\WebService.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\brcom\OneDrive\Documentos\GitHub\BackGestionTurnos\WebService\obj\Debug\net8.0\win-x64\WebService.sourcelink.json
 C:\Users\brcom\OneDrive\Documentos\GitHub\BackGestionTurnos\WebService\obj\Debug\net8.0\win-x64\staticwebassets.build.json
 C:\Users\brcom\OneDrive\Documentos\GitHub\BackGestionTurnos\WebService\obj\Debug\net8.0\win-x64\staticwebassets.development.json
 C:\Users\brcom\OneDrive\Documentos\GitHub\BackGestionTurnos\WebService\obj\Debug\net8.0\win-x64\staticwebassets\msbuild.WebService.Microsoft.AspNetCore.StaticWebAssets.props
